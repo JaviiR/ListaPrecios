@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VerProducto">
+
+
+
+    <TextView
+         android:id="@+id/viewNombre"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="@string/textNombre"/>
+    <EditText
+        android:id="@+id/txtNombreEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:labelFor="@id/viewNombre"
+        android:inputType="textPersonName"
+        android:textSize="24sp" />
+
+
+
+
+    <TextView
+        android:id="@+id/viewPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textPrecio"/>
+    <EditText
+        android:id="@+id/txtPrecioEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:labelFor="@id/viewPrecio"
+        android:inputType="numberDecimal"
+        android:textSize="24sp" />
+
+
+
+
+    <TextView
+        android:id="@+id/viewFechaExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textFechaExp"/>
+    <EditText
+        android:id="@+id/txtFechaExpEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:labelFor="@id/viewFechaExp"
+        android:inputType="textPersonName"
+        android:textSize="24sp" />
+
+
+
+
+    <Button
+        android:id="@+id/btnEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_editar"
+        android:textSize="24sp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+
+</LinearLayout>

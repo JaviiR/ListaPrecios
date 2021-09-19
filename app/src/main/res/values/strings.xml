@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ListaPrecios</string>
+    <string name="btn_agregar">AGREGAR</string>
+    <string name="btn_editar">ACTUALIZAR</string>
+    <string name="textNombre">NOMBRE:</string>
+    <string name="textPrecio">PRECIO:</string>
+    <string name="textFechaExp">FECHA EXP:</string>
+    <string name="menu_nuevo">MENU NUEVO</string>
+    <string name="textId">ID:</string>
+</resources>
