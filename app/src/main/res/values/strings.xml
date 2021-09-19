@@ -6,5 +6,6 @@
     <string name="textPrecio">PRECIO:</string>
     <string name="textFechaExp">FECHA EXP:</string>
     <string name="menu_nuevo">MENU NUEVO</string>
+    <string name="btn_ver">VER</string>
     <string name="textId">ID:</string>
 </resources>

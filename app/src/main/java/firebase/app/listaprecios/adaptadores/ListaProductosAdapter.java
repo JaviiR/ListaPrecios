@@ -2,12 +2,15 @@ package firebase.app.listaprecios.adaptadores;
 
 import android.content.Context;
 import android.content.Intent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
 
     ArrayList<Productos> listaProductos;
     ArrayList<Productos> listaOriginal;
+    Button btnVer;
 
     public ListaProductosAdapter(ArrayList<Productos> listaProductos){
         this.listaProductos=listaProductos;
@@ -81,21 +85,47 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
 
 
         public ProductosViewHolder(@NonNull View itemView) {
+
             super(itemView);
             viewNombre=itemView.findViewById(R.id.viewNombre);
             viewPrecio=itemView.findViewById(R.id.viewPrecio);
             viewFecha=itemView.findViewById(R.id.viewFecha);
+            btnVer=itemView.findViewById(R.id.btnVer);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Context context=view.getContext();
-                    Intent  intent=new Intent(context, VerProducto.class);
-                    intent.putExtra("ID",listaProductos.get(getAdapterPosition()).getId());
-                    context.startActivity(intent);
-                }
+
+            //lista_item_producto--->
+            //Cuando das click en el boton ver de la lista_item_producto
+
+            btnVer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Context context=view.getContext();
+            Intent  intent=new Intent(context, VerProducto.class);
+            intent.putExtra("ID",listaProductos.get(getAdapterPosition()).getId());
+            context.startActivity(intent);
+            }
             });
+
+
+            //lista_item_producto--->
+            //Cuando das click en el LinearLayout principal de la lista nombre:@+id/LinearPrincipal
+
+            /*itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Context context=view.getContext();
+            Intent  intent=new Intent(context, VerProducto.class);
+            intent.putExtra("ID",listaProductos.get(getAdapterPosition()).getId());
+            context.startActivity(intent);
+            }
+            });*/
 
         }
     }
+
+
+
+
+
+
 }
