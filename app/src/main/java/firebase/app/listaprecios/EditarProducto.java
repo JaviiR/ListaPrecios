@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import firebase.app.listaprecios.db.DbProducto;
 import firebase.app.listaprecios.entidades.Productos;
 
@@ -19,6 +21,7 @@ public class EditarProducto extends AppCompatActivity {
     boolean estado=false;
     Productos producto;
     int id=0;
+    FloatingActionButton fabeditar,fabeliminar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +30,11 @@ public class EditarProducto extends AppCompatActivity {
         txtPrecio=findViewById(R.id.txtPrecioEditar);
         txtFecha=findViewById(R.id.txtFechaExpEditar);
         btnEditar=findViewById(R.id.btnEditar);
-
+        fabeditar=findViewById(R.id.fabEditar);
+        fabeliminar=findViewById(R.id.fabEliminar);
+        //(2)
+        fabeditar.setVisibility(View.INVISIBLE);
+        fabeliminar.setVisibility(View.INVISIBLE);
 
         if(savedInstanceState==null){
             Bundle extras=getIntent().getExtras();

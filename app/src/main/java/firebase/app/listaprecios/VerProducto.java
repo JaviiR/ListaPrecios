@@ -1,13 +1,16 @@
 package firebase.app.listaprecios;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -19,7 +22,9 @@ public class VerProducto extends AppCompatActivity {
     Button btnEditar;
     Productos producto;
     int id=0;
-    FloatingActionButton fabeditar;
+    String  ProEliminado2;
+
+    FloatingActionButton fabeditar,fabeliminar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,7 @@ public class VerProducto extends AppCompatActivity {
         txtFecha=findViewById(R.id.txtFechaExpEditar);
         btnEditar=findViewById(R.id.btnEditar);
         fabeditar=findViewById(R.id.fabEditar);
+        fabeliminar=findViewById(R.id.fabEliminar);
 
 
         if(savedInstanceState==null){
@@ -66,6 +72,38 @@ public class VerProducto extends AppCompatActivity {
             }
         });
 
+        String ProEliminado=txtNombre.getText().toString();
+        ProEliminado2=ProEliminado;
+        //(4)
+        fabeliminar.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(VerProducto.this);
+                builder.setMessage("DESEAS ELIMINAR ESTE PRODUCTO?").setPositiveButton("SI", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        boolean estado=dbproducto.eliminarProducto(id);
+                        if(estado){
+
+
+                            VolverAvista();
+                        }
+                    }
+                })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        }).show();
+            }
+
+        });
+
+
 
 
 
@@ -74,7 +112,11 @@ public class VerProducto extends AppCompatActivity {
 
 
 
-
+private void VolverAvista(){
+        Intent intent=new Intent(this,MainActivity.class);
+        intent.putExtra("nombre",ProEliminado2);
+        startActivity(intent);
+}
 
 
 

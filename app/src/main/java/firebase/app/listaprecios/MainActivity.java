@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,10 +27,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     ListaProductosAdapter adapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         listaProductos=findViewById(R.id.listaProductos);
         txtBuscar=findViewById(R.id.txtBuscar);
         listaProductos.setLayoutManager(new LinearLayoutManager(this));
@@ -43,6 +46,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         txtBuscar.setOnQueryTextListener(this);
 
+        //(3)
+        String ProductoBorrado=getIntent().getStringExtra("nombre");
+        if(ProductoBorrado!=null){
+            Toast.makeText(this,ProductoBorrado+" ELIMINADO",Toast.LENGTH_LONG).show();
+        }
+
+
+
+
+
+
     }
 
 
@@ -50,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater= getMenuInflater();
         inflater.inflate(R.menu.menu_principal,menu);
+
         return true;
     }
 

@@ -47,7 +47,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
     @Override
     public void onBindViewHolder(@NonNull ProductosViewHolder holder, int position) {
         holder.viewNombre.setText(listaProductos.get(position).getNombre());
-        holder.viewPrecio.setText("S/."+listaProductos.get(position).getPrecio());
+        holder.viewPrecio.setText("S/"+listaProductos.get(position).getPrecio());
         holder.viewFecha.setText(listaProductos.get(position).getFecha_exp());
     }
 

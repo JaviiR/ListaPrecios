@@ -75,5 +75,14 @@
         android:clickable="true"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_marginTop="15sp"
+        android:id="@+id/fabEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
 
 </LinearLayout>

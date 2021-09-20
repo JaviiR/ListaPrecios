@@ -4,11 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+import firebase.app.listaprecios.VerProducto;
 import firebase.app.listaprecios.entidades.Productos;
 
 public class DbProducto extends DbHelper{
@@ -103,6 +105,28 @@ public class DbProducto extends DbHelper{
             db.execSQL("update "+TABLE_NAME+" SET nombre="+"'"+nombre+"'"+" ,precio="+"'"+precio+"'"+" ,fecha_exp="+"'"+fecha_exp+"'"+" where id="+id);
             estado=true;
         }catch (Exception e){
+            e.toString();
+            estado=false;
+        }finally {
+            db.close();
+        }
+        return estado;
+
+    }
+
+
+        //(1)
+    public boolean eliminarProducto(int id){
+        boolean estado=false;
+        DbHelper dbHelper=new DbHelper(contextDbProducto);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+
+        try {
+
+            db.execSQL("delete from "+TABLE_NAME+" WHERE id="+id);
+            estado=true;
+        }catch (Exception e){
+
             e.toString();
             estado=false;
         }finally {
