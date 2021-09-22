@@ -6,8 +6,10 @@
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     app:cardCornerRadius="20dp"
-    app:cardElevation="4dp"
-    app:cardUseCompatPadding="true">
+    app:cardElevation="10dp"
+    app:cardUseCompatPadding="true"
+
+    >
 
 
     <LinearLayout
@@ -15,7 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/productolista_background"
+        >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +53,9 @@
     android:orientation="vertical"
     android:layout_marginLeft="4dp"
     android:layout_toRightOf="@+id/imageview">
-        <TextView
+
+
+    <TextView
             android:id="@+id/viewNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,14 +78,7 @@
             android:paddingRight="5dp"
             android:textSize="27sp" />
 
-        <TextView
-            android:id="@+id/viewFecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="6dp"
-            android:layout_marginRight="6dp"
-            android:textSize="27sp" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -91,7 +90,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15sp">
+            android:layout_marginStart="3sp"
+            android:layout_marginBottom="2dp"
+            android:orientation="horizontal"
+            >
         <Button
             android:id="@+id/btnVer"
             android:layout_width="wrap_content"
@@ -103,7 +105,26 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/botonver_background"/>
+            <TextView
+                android:id="@+id/txtFechaExpList"
+                android:layout_marginLeft="70dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/red"
+                android:text="EXP: "/>
+
+            <TextView
+                android:id="@+id/viewFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="6dp"
+                android:layout_marginRight="6dp"
+                android:textSize="27sp"
+                android:textColor="@color/red"/>
         </LinearLayout>
     </LinearLayout>
 

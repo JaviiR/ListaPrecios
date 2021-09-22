@@ -66,14 +66,25 @@ public class EditarProducto extends AppCompatActivity {
                 String nombre=txtNombre.getText().toString();
                 String precio=txtPrecio.getText().toString();
                 String fecha=txtFecha.getText().toString();
-                if(!nombre.equals("") && !precio.equals("") && !fecha.equals("")){
+                if(!nombre.equals("") && !precio.equals("")){
+                    if(!fecha.isEmpty()){
                   estado=  dbproducto.editarProducto(id,nombre,precio,fecha);
                     if(estado){
                         Toast.makeText(EditarProducto.this,"PRODUCTO ACTUALIZADO",Toast.LENGTH_LONG).show();
                         verProducto();
                     }else{
                         Toast.makeText(EditarProducto.this,"ERROR:NO SE ACTUALIZÓ EL PRODUCTO ",Toast.LENGTH_LONG).show();
+                    }}else if(fecha.isEmpty()){
+                        estado=  dbproducto.editarProducto(id,nombre,precio,"NULL");
+                        if(estado){
+                            Toast.makeText(EditarProducto.this,"PRODUCTO ACTUALIZADO",Toast.LENGTH_LONG).show();
+                            verProducto();
+                        }else{
+                            Toast.makeText(EditarProducto.this,"ERROR:NO SE ACTUALIZÓ EL PRODUCTO ",Toast.LENGTH_LONG).show();
+                        }
                     }
+
+
                 }else if(txtNombre.getText().toString().equals("")){
                     Toast.makeText(EditarProducto.this,"FALTA NOMBRE DEL PRODUCTO",Toast.LENGTH_LONG).show();
                 }else if(txtPrecio.getText().toString().equals("")){
