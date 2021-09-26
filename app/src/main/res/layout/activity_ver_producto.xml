@@ -121,13 +121,14 @@ app:cardUseCompatPadding="true"
                 android:text="@string/textFechaExp"
                 android:layout_gravity="center"
                 android:textSize="17dp"/>
+            <!---14-->
                 <EditText
                 android:id="@+id/txtFechaExpEditar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:labelFor="@id/viewFechaExp"
-                android:inputType="textCapCharacters"
+                android:inputType="date"
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
@@ -163,6 +164,7 @@ app:cardUseCompatPadding="true"
                 android:layout_gravity="bottom|end"
                 android:clickable="true"
                 app:srcCompat="@android:drawable/ic_menu_delete" />
+
 
 
 </LinearLayout>

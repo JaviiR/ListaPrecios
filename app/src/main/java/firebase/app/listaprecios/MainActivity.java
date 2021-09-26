@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     RecyclerView listaProductos;
     ArrayList<Productos> listaArrayProductos;
     ListaProductosAdapter adapter;
+    Button btnVerProdVencer;
 
 
 
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         listaProductos=findViewById(R.id.listaProductos);
         txtBuscar=findViewById(R.id.txtBuscar);
+        btnVerProdVencer=findViewById(R.id.btnPrCaducidad);
         listaProductos.setLayoutManager(new LinearLayoutManager(this));
 
         DbProducto dblista= new DbProducto(MainActivity.this);
@@ -54,7 +58,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
 
-
+        //(6)
+        btnVerProdVencer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,ver_productos_vencer.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

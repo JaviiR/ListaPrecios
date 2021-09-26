@@ -70,13 +70,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <!--16-->
         <TextView
             android:id="@+id/viewPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:paddingRight="5dp"
-            android:textSize="27sp" />
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"/>
 
 
         </LinearLayout>
@@ -113,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:textColor="@color/red"
+
                 android:text="EXP: "/>
 
             <TextView
@@ -124,7 +127,7 @@
                 android:layout_marginEnd="6dp"
                 android:layout_marginRight="6dp"
                 android:textSize="27sp"
-                android:textColor="@color/red"/>
+                />
         </LinearLayout>
     </LinearLayout>
 

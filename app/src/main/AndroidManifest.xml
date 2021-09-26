@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaPrecios">
+        <activity android:name=".SplashInicio">
+            <!--(2)-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-
-
+        </activity>
         <activity
             android:name=".IngresarProductos"
             android:parentActivityName=".MainActivity">
@@ -20,39 +25,31 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--(2)-->
         </activity>
-
-
-
-
-        <activity android:name=".VerProducto"
+        <activity
+            android:name=".VerProducto"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
-
-        <activity android:name=".EditarProducto"
+        <activity
+            android:name=".EditarProducto"
+            android:parentActivityName=".MainActivity">
+            <!--(3)-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ver_productos_vencer"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
     </application>
 
 </manifest>

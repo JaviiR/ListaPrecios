@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">ListaPrecios</string>
+    <!--18-->
+    <string name="app_name">Bodega Carmen</string>
     <string name="btn_agregar">AGREGAR</string>
     <string name="btn_editar">ACTUALIZAR</string>
     <string name="textNombre">NOMBRE:</string>

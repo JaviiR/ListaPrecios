@@ -86,14 +86,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
-
+            <!--11-->
     <EditText
         android:id="@+id/txtFechaExp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/textFechaExp"
-        android:inputType="textCapCharacters"
+        android:inputType="date"
         android:textSize="24sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -7,10 +7,27 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
+    <!---12-->
+    <Button
+        android:id="@+id/btnPrCaducidad"
+        android:layout_width="match_parent"
+
+        android:layout_marginTop="-10dp"
+        android:layout_height="75dp"
+        android:text="PRODUCTOS A CADUCAR"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+
+
 
     <SearchView
         android:id="@+id/txtBuscar"
@@ -24,6 +41,8 @@
         android:iconifiedByDefault="false"
 
         android:background="@drawable/searchview_background"/>
+
+
 
 
     <androidx.recyclerview.widget.RecyclerView

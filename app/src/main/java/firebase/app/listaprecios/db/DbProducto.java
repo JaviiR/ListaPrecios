@@ -52,8 +52,15 @@ public class DbProducto extends DbHelper{
         Productos producto=null;
         Cursor cursorProductos=null;
 
-        cursorProductos=db.rawQuery("Select * from "+TABLE_NAME+" order by nombre",null);
 
+        //cursorProductos=db.rawQuery("Select *,(substr(fecha_exp,7,4)||'/'||substr(fecha_exp,4,2)||'/'||substr(fecha_exp,1,2))as fechaMod from "+TABLE_NAME+" order by fechaMod",null);
+         //(4)
+        cursorProductos=db.rawQuery("Select *,case fecha_exp\n" +
+                "when 'NULL'\n" +
+                "then  '9999'\n" +
+                "else (substr(fecha_exp,7,4)||'-'||substr(fecha_exp,4,2)||'-'||substr(fecha_exp,1,2))\n" +
+                "end   fecha\n" +
+                " from "+TABLE_NAME+" order by fecha",null);
             if(cursorProductos.moveToFirst()){
                 do{
                     producto= new Productos();
@@ -133,6 +140,35 @@ public class DbProducto extends DbHelper{
             db.close();
         }
         return estado;
+
+    }
+
+
+     //(5)
+    public ArrayList<Productos> mostrarProductosaVencer(){
+        DbHelper dbhelper=new DbHelper(contextDbProducto);
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+
+        ArrayList<Productos> listaProductos=new ArrayList<>();
+        Productos producto=null;
+        Cursor cursorProductos=null;
+
+        //cursorProductos=db.rawQuery("Select *,(substr(fecha_exp,7,4)||'/'||substr(fecha_exp,4,2)||'/'||substr(fecha_exp,1,2))as fechaMod,(substr(fecha_exp,1,2) - substr(date('now'),9,2)) as difDias from "+TABLE_NAME+" where substr(date('now'),1,4) like substr(fecha_exp,7,4) and  substr(date('now'),6,2) like substr(fecha_exp,4,2) and difDias<=10"+" order by fechaMod",null);
+
+        cursorProductos=db.rawQuery("Select *,(round(julianday(substr(fecha_exp,7,4)||'-'||substr(fecha_exp,4,2)||'-'||substr(fecha_exp,1,2))-julianday('now'))) as dif from "+TABLE_NAME+"  where dif<=10  order by dif",null);
+
+        if(cursorProductos.moveToFirst()){
+            do{
+                producto= new Productos();
+                producto.setId(cursorProductos.getInt(0));
+                producto.setNombre(cursorProductos.getString(1));
+                producto.setPrecio(cursorProductos.getString(2));
+                producto.setFecha_exp(cursorProductos.getString(3));
+                listaProductos.add(producto);
+            }while (cursorProductos.moveToNext());
+        }
+        cursorProductos.close();
+        return listaProductos;
 
     }
 
