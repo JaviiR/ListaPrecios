@@ -121,7 +121,7 @@ app:cardUseCompatPadding="true"
                 android:text="@string/textFechaExp"
                 android:layout_gravity="center"
                 android:textSize="17dp"/>
-            <!---14-->
+            <!---18-->
                 <EditText
                 android:id="@+id/txtFechaExpEditar"
                 android:layout_width="match_parent"

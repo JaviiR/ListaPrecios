@@ -54,7 +54,7 @@ public class DbProducto extends DbHelper{
 
 
         //cursorProductos=db.rawQuery("Select *,(substr(fecha_exp,7,4)||'/'||substr(fecha_exp,4,2)||'/'||substr(fecha_exp,1,2))as fechaMod from "+TABLE_NAME+" order by fechaMod",null);
-         //(4)
+         //(8)
         cursorProductos=db.rawQuery("Select *,case fecha_exp\n" +
                 "when 'NULL'\n" +
                 "then  '9999'\n" +
@@ -144,7 +144,7 @@ public class DbProducto extends DbHelper{
     }
 
 
-     //(5)
+     //(9)
     public ArrayList<Productos> mostrarProductosaVencer(){
         DbHelper dbhelper=new DbHelper(contextDbProducto);
         SQLiteDatabase db=dbhelper.getWritableDatabase();

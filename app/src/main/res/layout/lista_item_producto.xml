@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <!--16-->
+        <!--20-->
         <TextView
             android:id="@+id/viewPrecio"
             android:layout_width="match_parent"

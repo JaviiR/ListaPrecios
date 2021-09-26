@@ -17,7 +17,7 @@ public class SplashInicio extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_inicio);
-        //(7)
+        //(11)
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Animation animacion1= AnimationUtils.loadAnimation(this,R.anim.desplazamiento_izquierda);
         ImageView img=findViewById(R.id.imgGif);

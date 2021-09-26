@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import firebase.app.listaprecios.adaptadores.ListaProductosAdapter;
 import firebase.app.listaprecios.db.DbProducto;
 import firebase.app.listaprecios.entidades.Productos;
-//(8)
+//(12)
 public class ver_productos_vencer extends AppCompatActivity implements SearchView.OnQueryTextListener {
     SearchView txtBuscar;
     RecyclerView ListaProductosCaducos;
@@ -31,7 +31,7 @@ public class ver_productos_vencer extends AppCompatActivity implements SearchVie
 
         txtBuscar.setOnQueryTextListener(this);
         listaArrayProductos= new ArrayList<>();
-        //(9)
+        //(13)
          adapter= new ListaProductosAdapter(dbproducto.mostrarProductosaVencer());
         ListaProductosCaducos.setAdapter(adapter);
 
