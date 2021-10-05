@@ -39,4 +39,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     //(5)
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    //Imagen Cropper
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+
+
+
 }

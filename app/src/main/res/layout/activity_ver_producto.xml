@@ -8,13 +8,38 @@
     tools:context=".VerProducto">
 
 
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <ImageView
+                android:id="@+id/profileIvEditar"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_add_image" />
+
+        </LinearLayout>
+
+
+
+
+
+
 <androidx.cardview.widget.CardView
 android:layout_width="match_parent"
 android:layout_height="85dp"
 app:cardCornerRadius="20dp"
 app:cardElevation="2dp"
-app:cardUseCompatPadding="true"
->
+app:cardUseCompatPadding="true">
 
 
         <LinearLayout

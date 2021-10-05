@@ -2,37 +2,32 @@ package firebase.app.listaprecios.adaptadores;
 
 import android.content.Context;
 import android.content.Intent;
-
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import firebase.app.listaprecios.MainActivity;
-import firebase.app.listaprecios.VerProducto;
 import firebase.app.listaprecios.R;
+import firebase.app.listaprecios.VerProducto;
 import firebase.app.listaprecios.entidades.Productos;
 
-public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAdapter.ProductosViewHolder> {
+public class ListaProductosVencerAdapter extends RecyclerView.Adapter<ListaProductosVencerAdapter.ProductosViewHolder> {
 
     ArrayList<Productos> listaProductos;
     ArrayList<Productos> listaOriginal;
     Button btnVer;
 
-    public ListaProductosAdapter(ArrayList<Productos> listaProductos) {
+    public ListaProductosVencerAdapter(ArrayList<Productos> listaProductos) {
         this.listaProductos = listaProductos;
         listaOriginal = new ArrayList<>();
         listaOriginal.addAll(listaProductos);
@@ -41,16 +36,16 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
 
     @NonNull
     @Override
-    public ProductosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ListaProductosVencerAdapter.ProductosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item_producto, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item_producto_vencer, null, false);
 
-        return new ProductosViewHolder(view);
+        return new ListaProductosVencerAdapter.ProductosViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductosViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListaProductosVencerAdapter.ProductosViewHolder holder, int position) {
 
         Productos model=listaProductos.get(position);
         String idd = model.getId();
@@ -115,11 +110,11 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
         public ProductosViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            viewNombre = itemView.findViewById(R.id.viewNombre);
-            viewPrecio = itemView.findViewById(R.id.viewPrecio);
-            viewFecha = itemView.findViewById(R.id.viewFecha);
-            imgLista=itemView.findViewById(R.id.imageview);
-            btnVer = itemView.findViewById(R.id.btnVer);
+            viewNombre = itemView.findViewById(R.id.viewNombreVencer);
+            viewPrecio = itemView.findViewById(R.id.viewPrecioVencer);
+            viewFecha = itemView.findViewById(R.id.viewFechaVencer);
+            imgLista=itemView.findViewById(R.id.imageviewVencer);
+            btnVer = itemView.findViewById(R.id.btnVerVencer);
 
 
             //lista_item_producto--->
@@ -131,7 +126,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
                     Context context = view.getContext();
                     Intent intent = new Intent(context, VerProducto.class);
                     intent.putExtra("RECORD_ID", listaProductos.get(getAdapterPosition()).getId());
-                   // intent.putExtra("imagen_Main_a_ver",listaProductos.get(getAdapterPosition()).getImg());
+                    // intent.putExtra("imagen_Main_a_ver",listaProductos.get(getAdapterPosition()).getImg());
 
                     context.startActivity(intent);
                 }

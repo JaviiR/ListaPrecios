@@ -7,6 +7,29 @@
     android:orientation="vertical"
     tools:context=".IngresarProductos">
 
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imgAgregar"
+            android:layout_marginStart="100dp"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_add_image"
+            tools:ignore="MissingConstraints"/>
+
+
+
+    </LinearLayout>
+
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="85dp"

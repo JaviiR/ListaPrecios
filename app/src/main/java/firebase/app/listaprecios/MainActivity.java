@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import firebase.app.listaprecios.adaptadores.ListaProductosAdapter;
+import firebase.app.listaprecios.db.DbHelper;
 import firebase.app.listaprecios.db.DbProducto;
 import firebase.app.listaprecios.entidades.Productos;
 
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     ArrayList<Productos> listaArrayProductos;
     ListaProductosAdapter adapter;
     Button btnVerProdVencer;
-
+    //DB helper
+    private DbHelper dbhelper;
 
 
     @Override
@@ -36,25 +38,30 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listaProductos=findViewById(R.id.listaProductos);
-        txtBuscar=findViewById(R.id.txtBuscar);
-        btnVerProdVencer=findViewById(R.id.btnPrCaducidad);
+        listaProductos = findViewById(R.id.listaProductos);
+        txtBuscar = findViewById(R.id.txtBuscar);
+        btnVerProdVencer = findViewById(R.id.btnPrCaducidad);
         listaProductos.setLayoutManager(new LinearLayoutManager(this));
 
-        DbProducto dblista= new DbProducto(MainActivity.this);
-        listaArrayProductos=new ArrayList<>();
+        DbProducto dblista = new DbProducto(MainActivity.this);
+        listaArrayProductos = new ArrayList<>();
 
 
-        adapter=new ListaProductosAdapter(dblista.mostrarProductos());
+        adapter = new ListaProductosAdapter(dblista.mostrarProductos());
         listaProductos.setAdapter(adapter);
-
+//iniciar db helper class
+        //dbhelper= new DbHelper(this);
+        //loadrecords();
         txtBuscar.setOnQueryTextListener(this);
 
         //(3)
-        String ProductoBorrado=getIntent().getStringExtra("nombre");
-        if(ProductoBorrado!=null){
-            Toast.makeText(this,ProductoBorrado+" ELIMINADO",Toast.LENGTH_LONG).show();
+        String ProductoBorrado = getIntent().getStringExtra("nombre");
+        if (ProductoBorrado != null) {
+            Toast.makeText(this, ProductoBorrado + " ELIMINADO", Toast.LENGTH_LONG).show();
         }
+
+
+
 
 
 
@@ -62,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         btnVerProdVencer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,ver_productos_vencer.class);
+                Intent intent = new Intent(MainActivity.this, ver_productos_vencer.class);
+                intent.putExtra("codigo","1");
                 startActivity(intent);
             }
         });
@@ -70,17 +78,33 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     }
 
+    /*private void loadrecords() {
+        // si no compila cambiar el C_FECHA+"" por C_ADDED_TIMESTAMP+" DESC"
+        AdapterRecord adapterRecord=new AdapterRecord(MainActivity.this,dbhelper.getAllRecords());
+
+        listaProductos.setAdapter(adapterRecord);
 
 
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater= getMenuInflater();
-        inflater.inflate(R.menu.menu_principal,menu);
+
+    }*/
+
+    /*@Override
+    protected void onResume() {
+        super.onResume();
+        loadrecords();// refresh records list
+    }*/
+
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_principal, menu);
 
         return true;
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.menuNuevo:
                 nuevoRegistro();
                 return true;
@@ -91,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
 
-    private void nuevoRegistro(){
-        Intent intent= new Intent(this,IngresarProductos.class);
+    private void nuevoRegistro() {
+        Intent intent = new Intent(this, IngresarProductos.class);
         startActivity(intent);
     }
 

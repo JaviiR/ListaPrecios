@@ -8,47 +8,41 @@
     tools:context=".MainActivity">
 
 
-
     <!---16-->
     <Button
         android:id="@+id/btnPrCaducidad"
         android:layout_width="match_parent"
 
-        android:layout_marginTop="-10dp"
         android:layout_height="75dp"
+        android:layout_marginTop="-10dp"
         android:text="PRODUCTOS A CADUCAR"
         android:textSize="24sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-
-
-
-
-    <SearchView
-        android:id="@+id/txtBuscar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-
-        android:queryHint="Buscar"
-        android:iconifiedByDefault="false"
-
-        android:background="@drawable/searchview_background"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
+        <SearchView
+            android:id="@+id/txtBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/searchview_background"
+            android:iconifiedByDefault="false"
+
+            android:queryHint="Buscar" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaProductos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaProductos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/lista_item_producto" />
+    </LinearLayout>
 </LinearLayout>
