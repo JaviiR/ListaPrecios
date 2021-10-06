@@ -121,6 +121,37 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+            <!--15-->
+            <TextView
+                android:id="@+id/txtCodigoBarra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/textCodigoBarra"
+                android:inputType="date"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
     <Button
         android:id="@+id/btnAgregar"
         android:layout_width="match_parent"

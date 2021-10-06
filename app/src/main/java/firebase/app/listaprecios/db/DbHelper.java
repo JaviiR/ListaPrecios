@@ -48,7 +48,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     //insertar registro en la base de datos
-    public long insertRecord(String name, String precio, String fecha, String image/*, String addedTime, String updateTime*/) {
+    public long insertRecord(String name, String precio, String fecha, String image/*, String addedTime, String updateTime*/,String codigoBarra) {
         //obtener una base de datos que se pueda escribir porque queremos escribir datos
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -59,6 +59,7 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(Constants.C_PRECIO, precio);
         values.put(Constants.C_FECHA, fecha);
         values.put(Constants.C_IMAGE, image);
+        values.put(Constants.CODIGO_BARRA,codigoBarra);
         //values.put(Constants.C_ADDED_TIMESTAMP, addedTime);
        // values.put(Constants.C_UPDATED_TIMESTAMP, updateTime);
 
@@ -76,7 +77,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     //actualizar registro en la base de datos
-    public void updateRecord(String id,String name, String precio, String fecha, String image/*, String addedTime, String updateTime*/) {
+    public void updateRecord(String id,String name, String precio, String fecha, String image/*, String addedTime, String updateTime*/,String codigoBarra) {
         //obtener una base de datos que se pueda escribir porque queremos escribir datos
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -87,6 +88,7 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(Constants.C_PRECIO, precio);
         values.put(Constants.C_FECHA, fecha);
         values.put(Constants.C_IMAGE, image);
+        values.put(Constants.CODIGO_BARRA,codigoBarra);
         //values.put(Constants.C_ADDED_TIMESTAMP, addedTime);
         // values.put(Constants.C_UPDATED_TIMESTAMP, updateTime);
 

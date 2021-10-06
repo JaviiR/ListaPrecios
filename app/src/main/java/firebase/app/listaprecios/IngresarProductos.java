@@ -21,8 +21,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -33,6 +36,7 @@ public class IngresarProductos extends AppCompatActivity {
     private ImageView imagen;
     private EditText txtNombre, txtPrecio, txtFechaExp;
     private Button btnAgregar;
+    private TextView txtCodigoBarra;
 
     //permission constants
     private static final int CAMERA_REQUEST_CODE = 100;
@@ -45,7 +49,7 @@ public class IngresarProductos extends AppCompatActivity {
     private String[] storagePermissions;//solo almacenamiento
     //variables (contendrá datos para guardar)
     private Uri imageUri;
-    private String name, precio, fecha;
+    private String name, precio, fecha,codigo;
 
     //db helper
     private DbHelper dbHelper;
@@ -69,7 +73,7 @@ public class IngresarProductos extends AppCompatActivity {
         txtPrecio = findViewById(R.id.txtPrecio);
         txtFechaExp = findViewById(R.id.txtFechaExp);
         btnAgregar = findViewById(R.id.btnAgregar);
-
+        txtCodigoBarra=findViewById(R.id.txtCodigoBarra);
 //init db helper
         dbHelper = new DbHelper(this);
 
@@ -85,6 +89,19 @@ public class IngresarProductos extends AppCompatActivity {
                 //mostrar cuadro de diálogo de selección de imagen
                 imagePickDialog();
 
+            }
+        });
+
+        txtCodigoBarra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator integrador=new IntentIntegrator(IngresarProductos.this);
+                integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrador.setPrompt("Lector - CDP");
+                integrador.setCameraId(0);
+                integrador.setBeepEnabled(true);
+                integrador.setBarcodeImageEnabled(true);
+                integrador.initiateScan();
             }
         });
 
@@ -135,6 +152,7 @@ public class IngresarProductos extends AppCompatActivity {
         }else {
             fecha = "" + txtFechaExp.getText().toString().trim();
         }
+        codigo=""+txtCodigoBarra.getText().toString().trim();
 
         //save to db
         String timestamp = "" + System.currentTimeMillis();
@@ -142,9 +160,10 @@ public class IngresarProductos extends AppCompatActivity {
                 "" + name,
                 "" + precio,
                 "" + fecha,
-                "" + imageUri
+                "" + imageUri,
                // "" + timestamp,
                // "" + timestamp
+                ""+codigo
         );
         return id;
     }
@@ -281,11 +300,38 @@ public class IngresarProductos extends AppCompatActivity {
             }
 
 
-            //CRISTIAN henao
-            //Uri path=data.getData();
-            //imagen.setImageURI(path);
         }
         super.onActivityResult(requestCode, resultCode, data);
+
+        IntentResult result= IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if(result!=null){
+            if(result.getContents()==null){
+                Toast.makeText(this,"Lector Cancelado",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(this,result.getContents(),Toast.LENGTH_LONG).show();
+
+
+                    txtCodigoBarra.setText(result.getContents());
+            }
+        }else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+
+
+
+
+
+//CRISTIAN henao
+        //Uri path=data.getData();
+        //imagen.setImageURI(path);
+
+
+
+
+
+
+
+
 
     }
 
@@ -344,6 +390,7 @@ public class IngresarProductos extends AppCompatActivity {
         txtNombre.setText("");
         txtPrecio.setText("");
         txtFechaExp.setText("");
+        txtCodigoBarra.setText("");
         imagen.setImageResource(R.drawable.ic_add_image);
     }
 

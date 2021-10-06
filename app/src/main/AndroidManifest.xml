@@ -13,9 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaPrecios">
-        <activity android:name=".SplashInicio">
-            <!--(6)-->
+        <activity android:name=".principal">
 
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SplashInicio">
+
+            <!-- (6) -->
 
         </activity>
         <activity
@@ -25,13 +34,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".MainActivity">
-            <!--(2)-->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".principal">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- (2) -->
+
         </activity>
         <activity
             android:name=".VerProducto"
@@ -41,9 +48,15 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".VerProductoCodigoBarra"
+            android:parentActivityName=".principal">
+
+        </activity>
+        <activity
             android:name=".EditarProducto"
             android:parentActivityName=".MainActivity">
-            <!--(7)-->
+
+            <!-- (7) -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

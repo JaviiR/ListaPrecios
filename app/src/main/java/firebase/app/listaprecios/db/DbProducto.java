@@ -68,7 +68,8 @@ public class DbProducto extends DbHelper {
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_NAME)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_PRECIO)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_FECHA)),
-                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_IMAGE))
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_IMAGE)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA))
                 );
                 //agregar registro a la lista
                 listaProductos.add(model);
@@ -78,6 +79,14 @@ public class DbProducto extends DbHelper {
         return listaProductos;
 
     }
+
+
+
+
+
+
+
+
 
    /* public Productos verProductos(int id) {
         DbHelper dbhelper = new DbHelper(contextDbProducto);
@@ -166,7 +175,8 @@ public class DbProducto extends DbHelper {
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_NAME)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_PRECIO)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_FECHA)),
-                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_IMAGE))
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_IMAGE)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA))
                 );
                 listaProductos.add(producto);
             } while (cursorProductos.moveToNext());

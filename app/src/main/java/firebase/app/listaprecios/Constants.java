@@ -16,6 +16,7 @@ public class Constants {
     public static final String C_PRECIO = "precio";
     public static final String C_ADDED_TIMESTAMP = "ADDED_TIME_STAMP";
    public static final String C_UPDATED_TIMESTAMP = "UPDATE_TIME_STAMP";
+   public static final String CODIGO_BARRA="codigo";
     //create table query
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
             + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -24,6 +25,7 @@ public class Constants {
             + C_FECHA + " varCHAR(9),"
             + C_IMAGE + " TEXT,"
             + C_ADDED_TIMESTAMP + " TEXT,"
-            + C_UPDATED_TIMESTAMP + " TEXT"
+            + C_UPDATED_TIMESTAMP + " TEXT,"
+            + CODIGO_BARRA + "TEXT"
             + ")";
 }

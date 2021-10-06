@@ -7,16 +7,18 @@ public class Productos {
     private String precio;
     private String fecha_exp;
     private String img;
+    private String codigo_barra;
 
     public Productos() {
     }
 
-    public Productos(String id, String nombre, String precio, String fecha_exp, String img) {
+    public Productos(String id, String nombre, String precio, String fecha_exp, String img, String codigo_barra) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.fecha_exp = fecha_exp;
         this.img = img;
+        this.codigo_barra = codigo_barra;
     }
 
     public String getId() {
@@ -57,5 +59,13 @@ public class Productos {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getCodigo_barra() {
+        return codigo_barra;
+    }
+
+    public void setCodigo_barra(String codigo_barra) {
+        this.codigo_barra = codigo_barra;
     }
 }

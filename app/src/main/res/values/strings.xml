@@ -6,6 +6,7 @@
     <string name="textNombre">NOMBRE:</string>
     <string name="textPrecio">PRECIO:</string>
     <string name="textFechaExp">FECHA EXP:</string>
+    <string name="textCodigoBarra">CODIGO BARRA</string>
     <string name="Producto_nuevo">AGREGAR PRODUCTO</string>
     <string name="btn_ver">VER</string>
     <string name="textId">ID:</string>

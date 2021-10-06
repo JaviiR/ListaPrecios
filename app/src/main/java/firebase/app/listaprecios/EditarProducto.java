@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -34,6 +37,7 @@ import firebase.app.listaprecios.entidades.Productos;
 
 public class EditarProducto extends AppCompatActivity {
     EditText txtNombre, txtPrecio, txtFecha;
+    TextView txtCodigo;
     Button btnEditar;
     ImageView img;
     boolean estado = false;
@@ -42,7 +46,7 @@ public class EditarProducto extends AppCompatActivity {
 
     FloatingActionButton fabeditar, fabeliminar;
     private DbHelper dbHelper;
-    private String name, precio, fecha;
+    private String name, precio, fecha,codigo;
 
 
     //permission constants
@@ -68,6 +72,7 @@ public class EditarProducto extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombreEditar);
         txtPrecio = findViewById(R.id.txtPrecioEditar);
         txtFecha = findViewById(R.id.txtFechaExpEditar);
+        txtCodigo=findViewById(R.id.txtCodigoBarraEditar);
         btnEditar = findViewById(R.id.btnEditar);
         fabeditar = findViewById(R.id.fabEditar);
         img=findViewById(R.id.profileIvEditar);
@@ -90,7 +95,18 @@ public class EditarProducto extends AppCompatActivity {
 
 
 
-
+txtCodigo.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+        integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrador.setPrompt("Lector - CDP");
+        integrador.setCameraId(0);
+        integrador.setBeepEnabled(true);
+        integrador.setBarcodeImageEnabled(true);
+        integrador.initiateScan();
+    }
+});
 
 
 
@@ -147,6 +163,7 @@ public class EditarProducto extends AppCompatActivity {
                 String nombre = txtNombre.getText().toString();
                 String precio = txtPrecio.getText().toString();
                 String fecha = txtFecha.getText().toString();
+
                 if (!nombre.equals("") && !precio.equals("")) {
                     if (!fecha.isEmpty()) {
                         estado = updateData();
@@ -208,6 +225,7 @@ public class EditarProducto extends AppCompatActivity {
                 String imgg=""+cursor.getString(cursor.getColumnIndex(Constants.C_IMAGE));
                 // String timestampAdded=""+cursor.getString(cursor.getColumnIndex(Constants.C_ADDED_TIMESTAMP));
                 // String timestampUpdated=""+cursor.getString(cursor.getColumnIndex(Constants.C_UPDATED_TIMESTAMP));
+                String codigoB=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA));
 
 
               /*  Calendar calendar1=Calendar.getInstance(Locale.getDefault());
@@ -223,6 +241,7 @@ public class EditarProducto extends AppCompatActivity {
                 txtNombre.setText(name);
                 txtPrecio.setText(precio);
                 txtFecha.setText(fecha);
+                txtCodigo.setText(codigoB);
 
                 //si el usuario no adjunta la imagen, imageUri será nulo, así que configure una imagen predeterminada en ese caso
                 if(imgg.equals("null")){
@@ -257,7 +276,7 @@ public class EditarProducto extends AppCompatActivity {
         }else {
             fecha = "" + txtFecha.getText().toString().trim();
         }
-
+        codigo=""+txtCodigo.getText().toString().trim();
         //save to db
         if(imageUri!=null){
         String timestamp = "" + System.currentTimeMillis();
@@ -266,9 +285,10 @@ public class EditarProducto extends AppCompatActivity {
                 "" + name,
                 "" + precio,
                 "" + fecha,
-                "" + imageUri
+                "" + imageUri,
                 // "" + timestamp,
                 // "" + timestamp
+                ""+codigo
         );
 
         }else{
@@ -278,9 +298,10 @@ public class EditarProducto extends AppCompatActivity {
                     "" + name,
                     "" + precio,
                     "" + fecha,
-                    "" + Stringimgg
+                    "" + Stringimgg,
                     // "" + timestamp,
                     // "" + timestamp
+                    ""+codigo
             );
 
         }
@@ -432,6 +453,21 @@ public class EditarProducto extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
 
+
+
+        IntentResult result= IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if(result!=null){
+            if(result.getContents()==null){
+                Toast.makeText(this,"Lector Cancelado",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(this,result.getContents(),Toast.LENGTH_LONG).show();
+
+
+                txtCodigo.setText(result.getContents());
+            }
+        }else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
 
@@ -489,6 +525,7 @@ public class EditarProducto extends AppCompatActivity {
         txtNombre.setText("");
         txtPrecio.setText("");
         txtFecha.setText("");
+        txtCodigo.setText("");
         img.setImageResource(R.drawable.ic_contacto);
     }
 

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,18 +30,16 @@ import firebase.app.listaprecios.entidades.Productos;
 
 public class VerProducto extends AppCompatActivity {
     EditText txtNombre, txtPrecio, txtFecha;
+    TextView txtCodigo;
     ImageView img;
     Button btnEditar;
-    Productos producto;
+
     String id;
     String ProEliminado2;
     //db helper
     private DbHelper dbHelper;
     FloatingActionButton fabeditar, fabeliminar;
-    private String recordID;
-    private String recordIDD;
-    private String imgIntentput;
-    private String imgputdeEditar;
+
     ArrayList<Productos> listaProductos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,7 @@ public class VerProducto extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombreEditar);
         txtPrecio = findViewById(R.id.txtPrecioEditar);
         txtFecha = findViewById(R.id.txtFechaExpEditar);
+        txtCodigo=findViewById(R.id.txtCodigoBarraEditar);
         btnEditar = findViewById(R.id.btnEditar);
         fabeditar = findViewById(R.id.fabEditar);
         fabeliminar = findViewById(R.id.fabEliminar);
@@ -185,6 +185,7 @@ public class VerProducto extends AppCompatActivity {
                     String precio = "" + cursor.getString(cursor.getColumnIndex(Constants.C_PRECIO));
                     String fecha = "" + cursor.getString(cursor.getColumnIndex(Constants.C_FECHA));
                     String imgg = "" + cursor.getString(cursor.getColumnIndex(Constants.C_IMAGE));
+                    String codigoB=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA));
                     // String timestampAdded=""+cursor.getString(cursor.getColumnIndex(Constants.C_ADDED_TIMESTAMP));
                     // String timestampUpdated=""+cursor.getString(cursor.getColumnIndex(Constants.C_UPDATED_TIMESTAMP));
 
@@ -202,6 +203,7 @@ public class VerProducto extends AppCompatActivity {
                     txtNombre.setText(name);
                     txtPrecio.setText(precio);
                     txtFecha.setText(fecha);
+                    txtCodigo.setText(codigoB);
 
                     //si el usuario no adjunta la imagen, imageUri será nulo, así que configure una imagen predeterminada en ese caso
                     if (imgg.equals("null")) {
