@@ -30,7 +30,16 @@
         </LinearLayout>
 
 
+    <ScrollView
+        android:layout_marginTop="30dp"
 
+        android:layout_width="match_parent"
+        android:layout_height="340dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
 
@@ -166,43 +175,486 @@ app:cardUseCompatPadding="true"
 </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true"
-        >
+    <HorizontalScrollView
 
+
+        android:layout_width="match_parent"
+        android:isScrollContainer="true"
+        android:layout_height="80dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_gravity="center">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_marginStart="130dp"
-                android:id="@+id/txtCodigoBarraEditar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/textCodigoBarra"
-                android:layout_gravity="center"
-                android:textSize="17dp"/>
-            <!---18-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
 
 
+                <LinearLayout
 
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra1"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo1Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra2"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo2Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra3"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo3Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra4"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo4Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra5"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo5Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra6"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo6Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra7"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo7Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra8"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo8Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarraEditar9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra9"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo9Editar"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
-
-
-
-    </androidx.cardview.widget.CardView>
-
+    </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
                 <Button
                 android:id="@+id/btnEditar"
                 android:layout_width="match_parent"

@@ -30,9 +30,9 @@ import firebase.app.listaprecios.entidades.Productos;
 
 public class VerProducto extends AppCompatActivity {
     EditText txtNombre, txtPrecio, txtFecha;
-    TextView txtCodigo;
+    TextView txtCodigo,txtCodigoBarra2,txtCodigoBarra3,txtCodigoBarra4,txtCodigoBarra5,txtCodigoBarra6,txtCodigoBarra7,txtCodigoBarra8,txtCodigoBarra9;;
     ImageView img;
-    Button btnEditar;
+    Button btnEditar,btnBorrar1,btnBorrar2,btnBorrar3,btnBorrar4,btnBorrar5,btnBorrar6,btnBorrar7,btnBorrar8,btnBorrar9;
 
     String id;
     String ProEliminado2;
@@ -52,11 +52,39 @@ public class VerProducto extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombreEditar);
         txtPrecio = findViewById(R.id.txtPrecioEditar);
         txtFecha = findViewById(R.id.txtFechaExpEditar);
-        txtCodigo=findViewById(R.id.txtCodigoBarraEditar);
+        txtCodigo=findViewById(R.id.txtCodigoBarraEditar1);
+        txtCodigoBarra2=findViewById(R.id.txtCodigoBarraEditar2);
+        txtCodigoBarra3=findViewById(R.id.txtCodigoBarraEditar3);
+        txtCodigoBarra4=findViewById(R.id.txtCodigoBarraEditar4);
+        txtCodigoBarra5=findViewById(R.id.txtCodigoBarraEditar5);
+        txtCodigoBarra6=findViewById(R.id.txtCodigoBarraEditar6);
+        txtCodigoBarra7=findViewById(R.id.txtCodigoBarraEditar7);
+        txtCodigoBarra8=findViewById(R.id.txtCodigoBarraEditar8);
+        txtCodigoBarra9=findViewById(R.id.txtCodigoBarraEditar9);
         btnEditar = findViewById(R.id.btnEditar);
         fabeditar = findViewById(R.id.fabEditar);
         fabeliminar = findViewById(R.id.fabEliminar);
         img=findViewById(R.id.profileIvEditar);
+        btnBorrar1=findViewById(R.id.btnBorrarCodigo1Editar);
+        btnBorrar2=findViewById(R.id.btnBorrarCodigo2Editar);
+        btnBorrar3=findViewById(R.id.btnBorrarCodigo3Editar);
+        btnBorrar4=findViewById(R.id.btnBorrarCodigo4Editar);
+        btnBorrar5=findViewById(R.id.btnBorrarCodigo5Editar);
+        btnBorrar6=findViewById(R.id.btnBorrarCodigo6Editar);
+        btnBorrar7=findViewById(R.id.btnBorrarCodigo7Editar);
+        btnBorrar8=findViewById(R.id.btnBorrarCodigo8Editar);
+        btnBorrar9=findViewById(R.id.btnBorrarCodigo9Editar);
+
+
+        btnBorrar1.setVisibility(View.INVISIBLE);
+        btnBorrar2.setVisibility(View.INVISIBLE);
+        btnBorrar3.setVisibility(View.INVISIBLE);
+        btnBorrar4.setVisibility(View.INVISIBLE);
+        btnBorrar5.setVisibility(View.INVISIBLE);
+        btnBorrar6.setVisibility(View.INVISIBLE);
+        btnBorrar7.setVisibility(View.INVISIBLE);
+        btnBorrar8.setVisibility(View.INVISIBLE);
+        btnBorrar9.setVisibility(View.INVISIBLE);
         //init db helper class
         dbHelper=  new DbHelper(this);
         //obtener el id de registro del adaptador a través de la intención
@@ -86,11 +114,13 @@ public class VerProducto extends AppCompatActivity {
 
 
 
+
         //DbProducto dbproducto = new DbProducto(VerProducto.this);
         //producto = dbproducto.verProductos(id);
 
         //<<<<------->>>>>>>
         showRecordDetails();
+
 
         /*if (producto != null) {
             txtNombre.setText(producto.getNombre());
@@ -186,6 +216,14 @@ public class VerProducto extends AppCompatActivity {
                     String fecha = "" + cursor.getString(cursor.getColumnIndex(Constants.C_FECHA));
                     String imgg = "" + cursor.getString(cursor.getColumnIndex(Constants.C_IMAGE));
                     String codigoB=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA));
+                    String codigoB_2=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_2));
+                    String codigoB_3=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_3));
+                    String codigoB_4=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_4));
+                    String codigoB_5=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_5));
+                    String codigoB_6=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_6));
+                    String codigoB_7=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_7));
+                    String codigoB_8=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_8));
+                    String codigoB_9=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_9));
                     // String timestampAdded=""+cursor.getString(cursor.getColumnIndex(Constants.C_ADDED_TIMESTAMP));
                     // String timestampUpdated=""+cursor.getString(cursor.getColumnIndex(Constants.C_UPDATED_TIMESTAMP));
 
@@ -203,8 +241,59 @@ public class VerProducto extends AppCompatActivity {
                     txtNombre.setText(name);
                     txtPrecio.setText(precio);
                     txtFecha.setText(fecha);
-                    txtCodigo.setText(codigoB);
+                    if(codigoB.equals("null")){
+                        txtCodigo.setHint("CODIGO BARRA #1");
+                    }else {
+                        txtCodigo.setText(codigoB);
+                    }
+                    if(codigoB_2.equals("null")){
+                        txtCodigoBarra2.setHint("CODIGO BARRA #2");
 
+                    }else {
+                        txtCodigoBarra2.setText(codigoB_2);
+                    }
+                    if(codigoB_3.equals("null")){
+                        txtCodigoBarra3.setHint("CODIGO BARRA #3");
+
+                    }else {
+                        txtCodigoBarra3.setText(codigoB_3);
+                    }
+                    if(codigoB_4.equals("null")){
+                        txtCodigoBarra4.setHint("CODIGO BARRA #4");
+
+                    }else {
+                        txtCodigoBarra4.setText(codigoB_4);
+                    }
+                    if(codigoB_5.equals("null")){
+                        txtCodigoBarra5.setHint("CODIGO BARRA #5");
+
+                    }else {
+                        txtCodigoBarra5.setText(codigoB_5);
+                    }
+                    if(codigoB_6.equals("null")){
+                        txtCodigoBarra6.setHint("CODIGO BARRA #6");
+
+                    }else {
+                        txtCodigoBarra6.setText(codigoB_6);
+                    }
+                    if(codigoB_7.equals("null")){
+                        txtCodigoBarra7.setHint("CODIGO BARRA #7");
+
+                    }else {
+                        txtCodigoBarra7.setText(codigoB_7);
+                    }
+                    if(codigoB_8.equals("null")){
+                        txtCodigoBarra8.setHint("CODIGO BARRA #8");
+
+                    }else {
+                        txtCodigoBarra8.setText(codigoB_8);
+                    }
+                    if(codigoB_9.equals("null")){
+                        txtCodigoBarra9.setHint("CODIGO BARRA #9");
+
+                    }else {
+                        txtCodigoBarra9.setText(codigoB_9);
+                    }
                     //si el usuario no adjunta la imagen, imageUri será nulo, así que configure una imagen predeterminada en ese caso
                     if (imgg.equals("null")) {
                         //no hay imagen en el registro, mostrar por defecto

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,6 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaPrecios">
+
+
         <activity android:name=".principal">
 
 
@@ -42,7 +45,8 @@
         </activity>
         <activity
             android:name=".VerProducto"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -54,7 +58,20 @@
         </activity>
         <activity
             android:name=".EditarProducto"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".VerProducto"
+
+            >
+
+            <!-- (7) -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditarProductoConCB"
+            android:parentActivityName=".MainActivity"
+
+            >
 
             <!-- (7) -->
             <meta-data

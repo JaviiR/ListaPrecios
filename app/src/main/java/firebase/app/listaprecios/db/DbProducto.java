@@ -20,7 +20,7 @@ public class DbProducto extends DbHelper {
         this.contextDbProducto = context;
     }
 
-    public long insertarProducto(String nombre, String precio, String fecha_exp) {
+    /*public long insertarProducto(String nombre, String precio, String fecha_exp) {
         long idd = 0;
         DbHelper dbHelper = new DbHelper(contextDbProducto);
 
@@ -39,7 +39,7 @@ public class DbProducto extends DbHelper {
         }
         return idd;
 
-    }
+    }*/
 
 
     public ArrayList<Productos> mostrarProductos() {
@@ -69,13 +69,22 @@ public class DbProducto extends DbHelper {
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_PRECIO)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_FECHA)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_IMAGE)),
-                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA))
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_2)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_3)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_4)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_5)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_6)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_7)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_8)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_9))
                 );
                 //agregar registro a la lista
                 listaProductos.add(model);
             } while (cursorProductos.moveToNext());
         }
         cursorProductos.close();
+db.close();
         return listaProductos;
 
     }
@@ -114,7 +123,7 @@ public class DbProducto extends DbHelper {
     }*/
 
 
-    public boolean editarProducto(int id, String nombre, String precio, String fecha_exp) {
+    /*public boolean editarProducto(int id, String nombre, String precio, String fecha_exp) {
         boolean estado = false;
         DbHelper dbHelper = new DbHelper(contextDbProducto);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -131,11 +140,11 @@ public class DbProducto extends DbHelper {
         }
         return estado;
 
-    }
+    }*/
 
 
     //(1)
-    public boolean eliminarProducto(int id) {
+   /* public boolean eliminarProducto(int id) {
         boolean estado = false;
         DbHelper dbHelper = new DbHelper(contextDbProducto);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -153,7 +162,7 @@ public class DbProducto extends DbHelper {
         }
         return estado;
 
-    }
+    }*/
 
 
     //(9)
@@ -176,12 +185,21 @@ public class DbProducto extends DbHelper {
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_PRECIO)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_FECHA)),
                         ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.C_IMAGE)),
-                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA))
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_2)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_3)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_4)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_5)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_6)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_7)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_8)),
+                        ""+cursorProductos.getString(cursorProductos.getColumnIndex(Constants.CODIGO_BARRA_9))
                 );
                 listaProductos.add(producto);
             } while (cursorProductos.moveToNext());
         }
         cursorProductos.close();
+db.close();
         return listaProductos;
 
     }

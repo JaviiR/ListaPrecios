@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".IngresarProductos">
 
 
@@ -29,7 +30,17 @@
     </LinearLayout>
 
 
+    <ScrollView
+        android:id="@+id/SrIngresarGeneral"
+        android:layout_marginTop="30dp"
 
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="85dp"
@@ -121,10 +132,19 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <HorizontalScrollView
+        android:id="@+id/SrIngresar"
+        android:isScrollContainer="true"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="85dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="2dp"
@@ -133,29 +153,461 @@
 
 
         <LinearLayout
+
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="10dp">
             <!--15-->
             <TextView
-                android:id="@+id/txtCodigoBarra"
-                android:layout_width="match_parent"
+                android:id="@+id/txtCodigoBarra1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/textCodigoBarra"
+                android:hint="@string/textCodigoBarra1"
                 android:inputType="date"
                 android:textSize="24sp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end">
+            <Button
+                android:id="@+id/btnBorrarCodigo1"
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginRight="-33dp"
+                android:textAlignment="textStart"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="24dp"
+                android:text="X"/>
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+            <!--15-->
+            <TextView
+                android:id="@+id/txtCodigoBarra2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="@string/textCodigoBarra2"
+                android:inputType="date"
+                android:textSize="24sp" />
+        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo2"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+            <!--15-->
+            <TextView
+                android:id="@+id/txtCodigoBarra3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="@string/textCodigoBarra3"
+                android:inputType="date"
+                android:textSize="24sp" />
+        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo3"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+            <!--15-->
+            <TextView
+                android:id="@+id/txtCodigoBarra4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="@string/textCodigoBarra4"
+                android:inputType="date"
+                android:textSize="24sp" />
+        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo4"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+                        android:id="@+id/txtCodigoBarra5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra5"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo5"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarra6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra6"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo6"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarra7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra7"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo7"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarra8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra8"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo8"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="320dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                >
+
+
+                <LinearLayout
+
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+                    <!--15-->
+                    <TextView
+
+
+                        android:id="@+id/txtCodigoBarra9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/textCodigoBarra9"
+                        android:inputType="date"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|end">
+                    <Button
+                        android:id="@+id/btnBorrarCodigo9"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginRight="-33dp"
+                        android:textAlignment="textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="X"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
     <Button
         android:id="@+id/btnAgregar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_agregar"
         android:textSize="24sp" />
+
+
 </LinearLayout>

@@ -6,8 +6,17 @@
     <string name="textNombre">NOMBRE:</string>
     <string name="textPrecio">PRECIO:</string>
     <string name="textFechaExp">FECHA EXP:</string>
-    <string name="textCodigoBarra">CODIGO BARRA</string>
+    <string name="textCodigoBarra1">CODIGO BARRA #1</string>
+    <string name="textCodigoBarra2">CODIGO BARRA #2</string>
+    <string name="textCodigoBarra3">CODIGO BARRA #3</string>
+    <string name="textCodigoBarra4">CODIGO BARRA #4</string>
+    <string name="textCodigoBarra5">CODIGO BARRA #5</string>
+    <string name="textCodigoBarra6">CODIGO BARRA #6</string>
+    <string name="textCodigoBarra7">CODIGO BARRA #7</string>
+    <string name="textCodigoBarra8">CODIGO BARRA #8</string>
+    <string name="textCodigoBarra9">CODIGO BARRA #9</string>
     <string name="Producto_nuevo">AGREGAR PRODUCTO</string>
+    <string name="Producto_nuevoConCB">AGREGAR PRODUCTO CON CODIGO</string>
     <string name="btn_ver">VER</string>
     <string name="textId">ID:</string>
 </resources>

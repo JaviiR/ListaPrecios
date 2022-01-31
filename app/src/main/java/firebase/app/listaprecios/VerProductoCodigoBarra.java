@@ -94,7 +94,11 @@ public class VerProductoCodigoBarra  extends AppCompatActivity {
 
         //consulta para seleccionar el registro en función de la identificación del registro
 
-        String selectQuery = "SELECT * FROM " + Constants.TABLE_NAME + " WHERE " + Constants.CODIGO_BARRA + " =\"" + codigoBarra + "\"";
+        String selectQuery = "SELECT * FROM " + Constants.TABLE_NAME + " WHERE " + Constants.CODIGO_BARRA + " =\"" + codigoBarra + "\""+" or "+Constants.CODIGO_BARRA_2+" =\""+codigoBarra+"\""
+                +" or "+Constants.CODIGO_BARRA_3+" =\""+codigoBarra+"\""+" or "+Constants.CODIGO_BARRA_4+" =\""+codigoBarra+"\""
+                +" or "+Constants.CODIGO_BARRA_5+" =\""+codigoBarra+"\""+" or "+Constants.CODIGO_BARRA_6+" =\""+codigoBarra+"\""
+                +" or "+Constants.CODIGO_BARRA_7+" =\""+codigoBarra+"\""+" or "+Constants.CODIGO_BARRA_8+" =\""+codigoBarra+"\""
+                +" or "+Constants.CODIGO_BARRA_9+" =\""+codigoBarra+"\"";;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -108,6 +112,14 @@ public class VerProductoCodigoBarra  extends AppCompatActivity {
                 String fecha = "" + cursor.getString(cursor.getColumnIndex(Constants.C_FECHA));
                 String imgg = "" + cursor.getString(cursor.getColumnIndex(Constants.C_IMAGE));
                 String codigoB=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA));
+                String codigoB_2=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_2));
+                String codigoB_3=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_3));
+                String codigoB_4=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_4));
+                String codigoB_5=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_5));
+                String codigoB_6=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_6));
+                String codigoB_7=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_7));
+                String codigoB_8=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_8));
+                String codigoB_9=""+cursor.getString(cursor.getColumnIndex(Constants.CODIGO_BARRA_9));
 
 
                 //set data

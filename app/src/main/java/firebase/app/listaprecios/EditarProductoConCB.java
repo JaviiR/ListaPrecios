@@ -9,8 +9,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.MediaStore;
-import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,13 +32,11 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import firebase.app.listaprecios.db.DbHelper;
-import firebase.app.listaprecios.db.DbProducto;
-import firebase.app.listaprecios.entidades.Productos;
 
-public class EditarProducto extends AppCompatActivity {
+public class EditarProductoConCB extends AppCompatActivity {
     EditText txtNombre, txtPrecio, txtFecha;
     TextView txtCodigo,txtCodigoBarra2,txtCodigoBarra3,txtCodigoBarra4,txtCodigoBarra5,txtCodigoBarra6,txtCodigoBarra7,txtCodigoBarra8,txtCodigoBarra9;;
-    Button btnEditar,btnBorrar1,btnBorrar2,btnBorrar3,btnBorrar4,btnBorrar5,btnBorrar6,btnBorrar7,btnBorrar8,btnBorrar9;
+    Button btnEditar;
     ImageView img;
     boolean estado;
 
@@ -70,7 +68,7 @@ public class EditarProducto extends AppCompatActivity {
     String idComprobado1,idComprobado2,idComprobado3,idComprobado4,idComprobado5,idComprobado6,idComprobado7,idComprobado8,idComprobado9;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_producto);
         txtNombre = findViewById(R.id.txtNombreEditar);
@@ -89,24 +87,9 @@ public class EditarProducto extends AppCompatActivity {
         fabeditar = findViewById(R.id.fabEditar);
         img=findViewById(R.id.profileIvEditar);
         fabeliminar = findViewById(R.id.fabEliminar);
-        btnBorrar1=findViewById(R.id.btnBorrarCodigo1Editar);
-        btnBorrar2=findViewById(R.id.btnBorrarCodigo2Editar);
-        btnBorrar3=findViewById(R.id.btnBorrarCodigo3Editar);
-        btnBorrar4=findViewById(R.id.btnBorrarCodigo4Editar);
-        btnBorrar5=findViewById(R.id.btnBorrarCodigo5Editar);
-        btnBorrar6=findViewById(R.id.btnBorrarCodigo6Editar);
-        btnBorrar7=findViewById(R.id.btnBorrarCodigo7Editar);
-        btnBorrar8=findViewById(R.id.btnBorrarCodigo8Editar);
-        btnBorrar9=findViewById(R.id.btnBorrarCodigo9Editar);
         //(2)
         fabeditar.setVisibility(View.INVISIBLE);
         fabeliminar.setVisibility(View.INVISIBLE);
-
-
-
-
-
-
 
 
 
@@ -161,10 +144,10 @@ public class EditarProducto extends AppCompatActivity {
         codigoIniciado7=txtCodigoBarra7.getText().toString().trim();
         codigoIniciado8=txtCodigoBarra8.getText().toString().trim();
         codigoIniciado9=txtCodigoBarra9.getText().toString().trim();
-        /*Toast.makeText(EditarProducto.this, "codigo iniciado 1:  "+codigoIniciado1, Toast.LENGTH_LONG).show();
-        Toast.makeText(EditarProducto.this, "codigo iniciado 2:  "+codigoIniciado2, Toast.LENGTH_LONG).show();
-        Toast.makeText(EditarProducto.this, "codigo iniciado 3:  "+codigoIniciado3, Toast.LENGTH_LONG).show();
-        Toast.makeText(EditarProducto.this, "codigo iniciado 4:  "+codigoIniciado4, Toast.LENGTH_LONG).show();
+        /*Toast.makeText(EditarProductoConCB.this, "codigo iniciado 1:  "+codigoIniciado1, Toast.LENGTH_LONG).show();
+        Toast.makeText(EditarProductoConCB.this, "codigo iniciado 2:  "+codigoIniciado2, Toast.LENGTH_LONG).show();
+        Toast.makeText(EditarProductoConCB.this, "codigo iniciado 3:  "+codigoIniciado3, Toast.LENGTH_LONG).show();
+        Toast.makeText(EditarProductoConCB.this, "codigo iniciado 4:  "+codigoIniciado4, Toast.LENGTH_LONG).show();
 */
         //comprobando si existen los codigos que llegan con el producto
         idComprobado1 = comprobarSiExisteConCB(codigoIniciado1);
@@ -199,7 +182,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
 
 
@@ -217,7 +200,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -232,7 +215,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -247,7 +230,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -262,7 +245,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -277,7 +260,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -292,7 +275,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -307,7 +290,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -322,7 +305,7 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador=new IntentIntegrator(EditarProducto.this);
+                IntentIntegrator integrador=new IntentIntegrator(EditarProductoConCB.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 integrador.setPrompt("Lector - CDP");
 
@@ -334,75 +317,7 @@ public class EditarProducto extends AppCompatActivity {
             }
         });
 
-
-        btnBorrar1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigo.setText("");
-                txtCodigo.setHint("CODIGO BARRA #1");
-            }
-        });
-
-        btnBorrar2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra2.setText("");
-                txtCodigoBarra2.setHint("CODIGO BARRA #2");
-            }
-        });
-
-
-        btnBorrar3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra3.setText("");
-                txtCodigoBarra3.setHint("CODIGO BARRA #3");
-            }
-        });
-        btnBorrar4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra4.setText("");
-                txtCodigoBarra4.setHint("CODIGO BARRA #4");
-            }
-        });
-        btnBorrar5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra5.setText("");
-                txtCodigoBarra5.setHint("CODIGO BARRA #5");
-            }
-        });
-        btnBorrar6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra6.setText("");
-                txtCodigoBarra6.setHint("CODIGO BARRA #6");
-            }
-        });
-        btnBorrar7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra7.setText("");
-                txtCodigoBarra7.setHint("CODIGO BARRA #7");
-            }
-        });
-        btnBorrar8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra8.setText("");
-                txtCodigoBarra8.setHint("CODIGO BARRA #8");
-            }
-        });
-        btnBorrar9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtCodigoBarra9.setText("");
-                txtCodigoBarra9.setHint("CODIGO BARRA #9");
-            }
-        });
-
-       /* final DbProducto dbproducto = new DbProducto(EditarProducto.this);
+       /* final DbProducto dbproducto = new DbProducto(EditarProductoConCB.this);
         producto = dbproducto.verProductos(id);
 
         if (producto != null) {
@@ -413,7 +328,7 @@ public class EditarProducto extends AppCompatActivity {
         }*/
 
 
-       btnEditar.setOnClickListener(new View.OnClickListener() {
+        btnEditar.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
@@ -469,32 +384,32 @@ public class EditarProducto extends AppCompatActivity {
                 String fecha = txtFecha.getText().toString();
 
                 if(id1==null && id2==null && id3==null && id4==null && id5==null && id6==null && id7==null && id8==null && id9==null) {
-                if (!nombre.equals("") && !precio.equals("")) {
-                    if(comprobarCodigoRepetidos()){
-                        Toast.makeText(EditarProducto.this, "CODIGO DE BARRAS REPETIDO", Toast.LENGTH_LONG).show();
-                    }else {
-                        estado = updateData();
-                        if (estado != false) {
-                            Toast.makeText(EditarProducto.this, nombre + " ACTUALIZADO", Toast.LENGTH_LONG).show();
-                            verProducto();
-                        } else {
-                            Toast.makeText(EditarProducto.this, "ESTE CODIGO DE BARRAS YA ESTA EN USO ", Toast.LENGTH_LONG).show();
+                    if (!nombre.equals("") && !precio.equals("")) {
+                        if(comprobarCodigoRepetidos()){
+                            Toast.makeText(EditarProductoConCB.this, "CODIGO DE BARRAS REPETIDO", Toast.LENGTH_LONG).show();
+                        }else {
+                            estado = updateData();
+                            if (estado != false) {
+                                Toast.makeText(EditarProductoConCB.this, nombre + " ACTUALIZADO", Toast.LENGTH_LONG).show();
+                                verProducto();
+                            } else {
+                                Toast.makeText(EditarProductoConCB.this, "ESTE CODIGO DE BARRAS YA ESTA EN USO ", Toast.LENGTH_LONG).show();
+                            }
                         }
+
+
+                    } else if (txtNombre.getText().toString().equals("")) {
+                        Toast.makeText(EditarProductoConCB.this, "FALTA NOMBRE DEL PRODUCTO", Toast.LENGTH_LONG).show();
+                    } else if (txtPrecio.getText().toString().equals("")) {
+                        Toast.makeText(EditarProductoConCB.this, "FALTA PRECIO DEL PRODUCTO", Toast.LENGTH_LONG).show();
+                    } else if (txtFecha.getText().toString().equals("")) {
+                        Toast.makeText(EditarProductoConCB.this, "ESCRIBIR NULL O ALGUNA FECHA EN FECHA DE EXP DEL PRODUCTO", Toast.LENGTH_LONG).show();
                     }
-
-
-                } else if (txtNombre.getText().toString().equals("")) {
-                    Toast.makeText(EditarProducto.this, "FALTA NOMBRE DEL PRODUCTO", Toast.LENGTH_LONG).show();
-                } else if (txtPrecio.getText().toString().equals("")) {
-                    Toast.makeText(EditarProducto.this, "FALTA PRECIO DEL PRODUCTO", Toast.LENGTH_LONG).show();
-                } else if (txtFecha.getText().toString().equals("")) {
-                    Toast.makeText(EditarProducto.this, "ESCRIBIR NULL O ALGUNA FECHA EN FECHA DE EXP DEL PRODUCTO", Toast.LENGTH_LONG).show();
-                }
-            }else
-                Toast.makeText(EditarProducto.this, "CODIGO DE BARRAS YA EXISTE", Toast.LENGTH_LONG).show();
-               /* Toast.makeText(EditarProducto.this, "ID 1: "+id1, Toast.LENGTH_LONG).show();
-                Toast.makeText(EditarProducto.this, "ID 2: "+id2, Toast.LENGTH_LONG).show();
-                Toast.makeText(EditarProducto.this, "ID 3: "+id3, Toast.LENGTH_LONG).show();*/
+                }else
+                    Toast.makeText(EditarProductoConCB.this, "CODIGO DE BARRAS YA EXISTE", Toast.LENGTH_LONG).show();
+               /* Toast.makeText(EditarProductoConCB.this, "ID 1: "+id1, Toast.LENGTH_LONG).show();
+                Toast.makeText(EditarProductoConCB.this, "ID 2: "+id2, Toast.LENGTH_LONG).show();
+                Toast.makeText(EditarProductoConCB.this, "ID 3: "+id3, Toast.LENGTH_LONG).show();*/
             }
         });
 
@@ -709,30 +624,30 @@ public class EditarProducto extends AppCompatActivity {
         }
         //save to db
         if(imageUri!=null){
-        String timestamp = "" + System.currentTimeMillis();
+            String timestamp = "" + System.currentTimeMillis();
 
-       estado= dbHelper.updateRecord(
-                ""+id,
-                "" + name,
-                "" + precio,
-                "" + fecha,
-                "" + imageUri,
-                // "" + timestamp,
-                // "" + timestamp
-                codigo,
-               codigo_2,
-               codigo_3,
-               codigo_4,
-               codigo_5,
-               codigo_6,
-               codigo_7,
-               codigo_8,
-               codigo_9
-        );
+            estado= dbHelper.updateRecord(
+                    ""+id,
+                    "" + name,
+                    "" + precio,
+                    "" + fecha,
+                    "" + imageUri,
+                    // "" + timestamp,
+                    // "" + timestamp
+                    codigo,
+                    codigo_2,
+                    codigo_3,
+                    codigo_4,
+                    codigo_5,
+                    codigo_6,
+                    codigo_7,
+                    codigo_8,
+                    codigo_9
+            );
 
         }else{
             String timestamp = "" + System.currentTimeMillis();
-           estado= dbHelper.updateRecord(
+            estado= dbHelper.updateRecord(
                     ""+id,
                     "" + name,
                     "" + precio,
@@ -741,19 +656,19 @@ public class EditarProducto extends AppCompatActivity {
                     // "" + timestamp,
                     // "" + timestamp
                     codigo,
-                   codigo_2,
-                   codigo_3,
-                   codigo_4,
-                   codigo_5,
-                   codigo_6,
-                   codigo_7,
-                   codigo_8,
-                   codigo_9
+                    codigo_2,
+                    codigo_3,
+                    codigo_4,
+                    codigo_5,
+                    codigo_6,
+                    codigo_7,
+                    codigo_8,
+                    codigo_9
             );
 
         }
         if (estado==0)
-        return false;
+            return false;
         else
             return true;
 
@@ -958,7 +873,7 @@ public class EditarProducto extends AppCompatActivity {
                         Toast.makeText(this, "get contents: "+result2.getContents(), Toast.LENGTH_SHORT).show();
                         Toast.makeText(this, "id despues: "+idComprobado2, Toast.LENGTH_SHORT).show();*/
                     }else if(codigoIniciado2!=result2.getContents()){
-                         {
+                        {
                             idComprobado2 = comprobarSiExisteConCB(null);
                             /*Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
                             Toast.makeText(this, "codigo iniciado despues: "+codigoIniciado2, Toast.LENGTH_SHORT).show();
@@ -1267,7 +1182,6 @@ public class EditarProducto extends AppCompatActivity {
         txtCodigoBarra9.setText("");
         img.setImageResource(R.drawable.ic_contacto);
     }
-
 
 
 
